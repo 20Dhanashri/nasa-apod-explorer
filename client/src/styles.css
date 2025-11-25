@@ -1,0 +1,453 @@
+/* ============================================================
+   NASA APOD Mission Control - Full UI Stylesheet
+   ============================================================ */
+
+/* ---------- RESET + BASE ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f4f7fc;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* ---------- LAYOUT WRAPPER ---------- */
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   SIDEBAR - NAVIGATION PANEL
+   ============================================================ */
+
+.sidebar {
+  width: 250px;
+  background: rgba(10, 15, 30, 0.65);
+  backdrop-filter: blur(20px);
+  color: white;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar-logo-mark {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-logo-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.sidebar-logo-text .sub {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sidebar-link {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  transition: 0.2s;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.sidebar-link.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.badge {
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  margin-left: auto;
+}
+
+.status-live {
+  background: #16a34a;
+  color: white;
+  animation: pulse-status 1.6s infinite;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  opacity: 0.6;
+  font-size: 0.75rem;
+}
+
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+
+.topbar {
+  height: 70px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topbar-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.topbar-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+/* ---------- GLOBAL SEARCH ---------- */
+
+.topbar-search {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.85rem;
+  min-width: 260px;
+  background: #f8fafc;
+  transition: 0.2s;
+}
+
+.topbar-search:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* ---------- TOPBAR ELEMENTS ---------- */
+
+.topbar-pill {
+  padding: 0.45rem 1rem;
+  border-radius: 25px;
+  background: #f3f4f6;
+  font-size: 0.8rem;
+  border: 1px solid #d1d5db;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  background: #2563eb;
+  border-radius: 50%;
+}
+
+/* ============================================================
+   MAIN PANEL + SPACE BACKGROUND
+   ============================================================ */
+
+.main-panel {
+  flex: 1;
+  background: rgba(10, 15, 30, 0.55); /* Transparent dark glass */
+  backdrop-filter: blur(18px);
+  padding: 1.5rem;
+}
+
+/* ============================================================
+   GRID LAYOUT (Dashboard)
+   ============================================================ */
+
+.dashboard-grid {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.dashboard-full {
+  width: 100%;
+}
+
+/* ============================================================
+   CARD (Glass Panel)
+   ============================================================ */
+
+.card {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+  padding: 1.3rem;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.card-subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.small-label {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* ============================================================
+   TODAY APOD - HERO IMAGE
+   ============================================================ */
+
+.hero-image {
+  width: 100%;
+  border-radius: 14px;
+  margin-top: 1rem;
+  max-height: 450px;
+  object-fit: cover;
+}
+
+/* ============================================================
+   INPUTS + BUTTONS
+   ============================================================ */
+
+.input {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 0.7rem;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
+
+/* ============================================================
+   GALLERY GRID
+   ============================================================ */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 950px;
+  background: white;
+  padding: 1rem;
+  border-radius: 18px;
+  display: flex;
+  gap: 1rem;
+}
+
+.modal-image {
+  width: 60%;
+  border-radius: 16px;
+}
+
+.modal-details {
+  width: 40%;
+}
+
+/* ============================================================
+   DARK THEME OVERRIDES
+   ============================================================ */
+
+body.theme-dark {
+  background: #020617;
+  color: #e2e8f0;
+}
+
+body.theme-dark .sidebar {
+  background: #020617 !important;
+}
+
+body.theme-dark .main-panel {
+  background: radial-gradient(circle at top, #020617, #0f172a);
+}
+
+body.theme-dark .card {
+  background: rgba(20, 20, 35, 0.72);
+  border: 1px solid #1e293b;
+}
+
+body.theme-dark .topbar {
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+}
+
+body.theme-dark .gallery-card {
+  background: rgba(30, 41, 59, 0.8);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes pulse-status {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.8);
+  }
+  75% {
+    box-shadow: 0 0 0 12px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* ============================================================
+   3D PARALLAX STARFIELD BACKGROUND
+   ============================================================ */
+
+#starfield {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1; /* Behind everything */
+  pointer-events: none;
+}
+
+/* STAR LAYER BASE STYLE */
+.stars-layer {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  background-size: contain;
+  will-change: transform;
+}
+
+/* TOP LAYER - small & fast stars */
+.layer1 {
+  background-image: url("https://raw.githubusercontent.com/itsjustgabs/space-assets/main/stars-small.png");
+  opacity: 0.6;
+  transform: translateZ(0);
+}
+
+
+/* MIDDLE LAYER - medium stars */
+.layer2 {
+  background-image: url("https://raw.githubusercontent.com/itsjustgabs/space-assets/main/stars-medium.png");
+  opacity: 0.5;
+  transform: translateZ(-1px) scale(1.5);
+}
+
+
+/* FAR LAYER - big soft stars */
+.layer3 {
+  background-image: url("https://raw.githubusercontent.com/itsjustgabs/space-assets/main/stars-big-soft.png");
+  opacity: 0.25;
+  transform: translateZ(-2px) scale(2);
+}
+
+
+/* DARK THEME BOOSTS STAR CONTRAST */
+body.theme-dark .stars-layer {
+  opacity: 0.85;
+}
+
+#starfield::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://raw.githubusercontent.com/itsjustgabs/space-assets/main/hud-grid.png");
+  opacity: 0.06;
+  mix-blend-mode: screen;
+}
