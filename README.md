@@ -1,4 +1,4 @@
-# 🚀 NASA APOD Explorer – Mission Control Dashboard  
+# 🚀 NASA APOD Explorer
 A full-stack NASA Astronomy Picture of the Day (APOD) viewer with a futuristic, mission-control style UI.  
 Built using **React (Vite)** + **Node.js / Express** + **NASA Open APIs**, with intelligent caching and professional REST architecture.
 
